@@ -46,6 +46,7 @@ const start = document.querySelector("#start");
 const reset = document.querySelector("#reset");
 const selectValue = select.value
 
+
 /******************************************************************
 
 CICLI E FUNZIONI
@@ -54,14 +55,29 @@ CICLI E FUNZIONI
 
 start.addEventListener("click" , function(){
   for (let i = 1; i <= select.value; i++) {
+
     let contenitoreNumeri = document.createElement("div");
+
     contenitoreNumeri.classList = "casella hide-number";
+
     contenitoreNumeri.innerText = i;
+
+    contenitoreNumeri._IdCasella = i 
+
     contenitoreNumeri.addEventListener('click', function () {
+
     contenitoreNumeri.classList.add('back-color-box-click');
 
-      console.log(i)
-    });
+    if (bombs.includes(this._IdCasella)) {
+
+      console.warn("Hai colpito una bomba")
+    } 
+    
+  })
+    
+
+
+    
 
 
     if (select.value == 81) {
@@ -81,8 +97,7 @@ start.addEventListener("click" , function(){
   reset.addEventListener("click", function(){
     container.innerText = ""
   }) 
-
-
+  
 
 /******************************************************************
 

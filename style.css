@@ -94,3 +94,14 @@ button:hover{
   font-size: large;
   cursor: pointer;
 }
+
+
+.bomb{
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+  background-color: red;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
