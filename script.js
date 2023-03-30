@@ -91,7 +91,7 @@ FUNZIONI GLOBALI
 *******************************************************************/
 
 function generaBombe(max) {
-  while (bombs.length < select.value) {
+  while (bombs.length < bombNumber) {
     const newNumber = Math.floor(Math.random() * max) + 1;
     if (!bombs.includes(newNumber)) {
       bombs.push(newNumber);
