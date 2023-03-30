@@ -20,19 +20,31 @@ Passaggi
 */
 
 
+
+
+
+/******************************************************************
+
+ARRAY
+
+*******************************************************************/
+
+const bombs = [];
+
+
 /******************************************************************
 
 COSTANTI E VARIABILI
 
 *******************************************************************/
 
-
+const bombNumber = 16
 const button = document.querySelector("button");
 const container = document.querySelector("#gridcontainer");
 const select = document.querySelector("#livelli");
 const start = document.querySelector("#start");
 const reset = document.querySelector("#reset");
-
+const selectValue = select.value
 
 /******************************************************************
 
@@ -47,9 +59,10 @@ start.addEventListener("click" , function(){
     contenitoreNumeri.innerText = i;
     contenitoreNumeri.addEventListener('click', function () {
     contenitoreNumeri.classList.add('back-color-box-click');
-    
+
       console.log(i)
     });
+
 
     if (select.value == 81) {
       contenitoreNumeri.classList = "casellaMedia hide-number"
@@ -59,15 +72,29 @@ start.addEventListener("click" , function(){
     }
     container.append(contenitoreNumeri)  
     }
+
+    generaBombe(select.value);
+
+    console.log(bombs);
   });
 
   reset.addEventListener("click", function(){
     container.innerText = ""
   }) 
 
-  
+
+
 /******************************************************************
 
-FUNZIONI
+FUNZIONI GLOBALI
 
 *******************************************************************/
+
+function generaBombe(max) {
+  while (bombs.length < 16) {
+    const newNumber = Math.floor(Math.random() * max) + 1;
+    if (!bombs.includes(newNumber)) {
+      bombs.push(newNumber);
+    }
+  }
+}
